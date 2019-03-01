@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  public isAuthenticated = false;
+  public isAuthenticated = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   public async login(username: string, password: string) {
     this.isAuthenticated = true;

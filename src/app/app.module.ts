@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IsLoggedInGuard} from './auth/is-logged-in.guard';
 import {IsLoggedOutGuard} from './auth/is-logged-out.guard';
 import {SharedModule} from './shared/shared.module';
+import {UsersService} from './users/users.service';
 
 @NgModule({
   imports: [
@@ -33,8 +34,9 @@ import {SharedModule} from './shared/shared.module';
   ],
   providers: [
     AuthService,
+    UsersService,
     IsLoggedInGuard,
-    IsLoggedOutGuard
+    IsLoggedOutGuard,
   ],
   bootstrap: [AppComponent]
 })
