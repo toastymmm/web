@@ -6,20 +6,36 @@ import {AppComponent} from './app.component';
 import {ClarityModule} from '@clr/angular';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LayoutModule} from './layout/layout.module';
+import { UsersComponent } from './users/users.component';
+import {LoginComponent} from './auth/login/login.component';
+import {AuthService} from './auth/auth.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {IsLoggedInGuard} from './auth/is-logged-in.guard';
+import {IsLoggedOutGuard} from './auth/is-logged-out.guard';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ClarityModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
 
+    SharedModule,
     LayoutModule
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    UsersComponent
+  ],
+  providers: [
+    AuthService,
+    IsLoggedInGuard,
+    IsLoggedOutGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
