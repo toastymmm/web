@@ -18,5 +18,6 @@ export class AuthService {
 
   public async logout() {
     this.isAuthenticated = false;
+    this.router.navigate(['login']);
   }
 }
