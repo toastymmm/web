@@ -22,11 +22,14 @@ import {BanDialogComponent} from './users/dialogs/ban-dialog.component';
 import {MessagesService} from './messages/messages.service';
 import {MessagesComponent} from './messages/messages.component';
 import {HomeComponent} from './home.component';
+import {EditMessageDialogComponent} from './messages/dialogs/edit-message-dialog.component';
+import {EllipsisFilter} from './messages/ellipsis.filter';
 
 const dialogs = [
   ModalDialogComponent,
   WarnDialogComponent,
-  BanDialogComponent
+  BanDialogComponent,
+  EditMessageDialogComponent
 ];
 
 @NgModule({
@@ -51,6 +54,7 @@ const dialogs = [
     LoginComponent,
     UsersComponent,
     MessagesComponent,
+    EllipsisFilter,
     ...dialogs
   ],
   providers: [

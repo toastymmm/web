@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ModalDialogService} from '../modals/dialog.service';
 import {MessagesService} from './messages.service';
 import {Message} from './message.model';
+import {User} from '../users/user.model';
+import {BanDialogComponent} from '../users/dialogs/ban-dialog.component';
+import {EditMessageDialogComponent} from './dialogs/edit-message-dialog.component';
 
 @Component({
   selector: 'app-messages',
@@ -10,12 +13,40 @@ import {Message} from './message.model';
 })
 export class MessagesComponent implements OnInit {
   messages: Message[] = [];
+  lastFilteredUser: User;
 
-  constructor(private messagesService: MessagesService, private modalService: ModalDialogService) {
-
+  constructor(public messagesService: MessagesService, private modalService: ModalDialogService) {
+    this.messagesService.messages.subscribe(msgs => {
+      if (this.messagesService.user) {
+        this.lastFilteredUser = this.messagesService.user;
+      }
+      return this.messages = msgs;
+    });
   }
 
   async ngOnInit() {
-    this.messages = await this.messagesService.getMessages();
+    await this.messagesService.getMessages();
+  }
+
+  clearFilter() {
+    this.lastFilteredUser = null;
+    this.messagesService.clearFilter();
+  }
+
+  async removeReports(message: Message) {
+    await this.messagesService.removeReports(message);
+  }
+
+  async deleteMessage(message: Message) {
+    this.messages.splice(this.messages.indexOf(message), 1);
+    await this.messagesService.deleteMessage(message);
+  }
+
+  async editMessage(message: Message) {
+    await this.modalService.openDialog(EditMessageDialogComponent, {
+      data: {
+        message
+      }
+    });
   }
 }

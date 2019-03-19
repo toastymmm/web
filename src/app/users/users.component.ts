@@ -4,6 +4,7 @@ import {UsersService} from './users.service';
 import {ModalDialogService} from '../modals/dialog.service';
 import {WarnDialogComponent} from './dialogs/warn-dialog.component';
 import {BanDialogComponent} from './dialogs/ban-dialog.component';
+import {MessagesService} from '../messages/messages.service';
 
 @Component({
   selector: 'app-users',
@@ -13,7 +14,9 @@ import {BanDialogComponent} from './dialogs/ban-dialog.component';
 export class UsersComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private usersService: UsersService, private modalService: ModalDialogService) {
+  constructor(private usersService: UsersService,
+              private messagesService: MessagesService,
+              private modalService: ModalDialogService) {
 
   }
 
@@ -35,5 +38,9 @@ export class UsersComponent implements OnInit {
         user
       }
     });
+  }
+
+  showMessages(user: User) {
+    this.messagesService.filterMessagesByUser(user);
   }
 }

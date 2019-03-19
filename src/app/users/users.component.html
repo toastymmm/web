@@ -13,7 +13,7 @@
 
   <clr-dg-row *clrDgItems="let user of users">
     <clr-dg-action-overflow>
-      <button class="action-item">View Messages</button>
+      <button (click)="showMessages(user)" class="action-item">View Messages</button>
       <button (click)="warnUser(user)" class="action-item">Warn</button>
       <button (click)="banUser(user)" class="action-item">Ban</button>
     </clr-dg-action-overflow>
@@ -27,8 +27,8 @@
   </clr-dg-row>
 
   <clr-dg-footer>
-    <clr-dg-pagination #pagination [clrDgPageSize]="10">
-      <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Users per page</clr-dg-page-size>
+    <clr-dg-pagination #pagination [clrDgPageSize]="25">
+      <clr-dg-page-size [clrPageSizeOptions]="[10,25,50,100]">Users per page</clr-dg-page-size>
       {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
       of {{pagination.totalItems}} users
     </clr-dg-pagination>
