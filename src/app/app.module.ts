@@ -19,6 +19,9 @@ import {ModalDialogService} from './modals/dialog.service';
 import {WarnDialogComponent} from './users/dialogs/warn-dialog.component';
 import {ModalDialogComponent} from './modals/dialog.component';
 import {BanDialogComponent} from './users/dialogs/ban-dialog.component';
+import {MessagesService} from './messages/messages.service';
+import {MessagesComponent} from './messages/messages.component';
+import {HomeComponent} from './home.component';
 
 const dialogs = [
   ModalDialogComponent,
@@ -44,13 +47,16 @@ const dialogs = [
   ],
   declarations: [
     AppComponent,
+    HomeComponent,
     LoginComponent,
     UsersComponent,
+    MessagesComponent,
     ...dialogs
   ],
   providers: [
     AuthService,
     UsersService,
+    MessagesService,
     IsLoggedInGuard,
     IsLoggedOutGuard,
     ModalDialogService,
