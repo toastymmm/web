@@ -20,7 +20,7 @@ export class MessagesComponent implements OnInit {
       if (this.messagesService.user) {
         this.lastFilteredUser = this.messagesService.user;
       }
-      return this.messages = msgs;
+      this.messages = [...msgs];
     });
   }
 

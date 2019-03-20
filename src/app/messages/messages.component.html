@@ -5,7 +5,7 @@
   <div class="messages-header-item">
     <div class="btn-group">
       <div class="radio btn" (click)="messagesService.clearFilter()">
-        <input type="radio" name="msgs-radios" id="msgs-radio-1" [defaultChecked]>
+        <input type="radio" name="msgs-radios" id="msgs-radio-1" checked>
         <label for="msgs-radio-1">All Messages</label>
       </div>
       <div class="radio btn" (click)="messagesService.filterMessagesByReported()">
