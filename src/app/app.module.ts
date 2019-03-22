@@ -12,7 +12,6 @@ import {AuthService} from './auth/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IsLoggedInGuard} from './auth/is-logged-in.guard';
 import {IsLoggedOutGuard} from './auth/is-logged-out.guard';
-import {SharedModule} from './shared/shared.module';
 import {UsersService} from './users/users.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ModalDialogService} from './modals/dialog.service';
@@ -45,8 +44,6 @@ const dialogs = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
-    SharedModule,
     LayoutModule
   ],
   declarations: [

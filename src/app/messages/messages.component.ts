@@ -3,7 +3,6 @@ import {ModalDialogService} from '../modals/dialog.service';
 import {MessagesService} from './messages.service';
 import {Message} from './message.model';
 import {User} from '../users/user.model';
-import {BanDialogComponent} from '../users/dialogs/ban-dialog.component';
 import {EditMessageDialogComponent} from './dialogs/edit-message-dialog.component';
 
 @Component({
