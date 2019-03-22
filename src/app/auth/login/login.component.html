@@ -12,10 +12,6 @@
       <clr-password-container>
         <input type="password" name="password" clrPassword placeholder="Password" [(ngModel)]="form.password" required/>
       </clr-password-container>
-      <clr-checkbox-wrapper>
-        <label>Remember me</label>
-        <input type="checkbox" name="rememberMe" clrCheckbox [(ngModel)]="form.rememberMe"/>
-      </clr-checkbox-wrapper>
       <div class="error active" *ngIf="error">
         {{error}}
       </div>

@@ -24,6 +24,7 @@ import {MessagesComponent} from './messages/messages.component';
 import {HomeComponent} from './home.component';
 import {EditMessageDialogComponent} from './messages/dialogs/edit-message-dialog.component';
 import {EllipsisFilter} from './messages/ellipsis.filter';
+import {CookieService} from 'ngx-cookie-service';
 
 const dialogs = [
   ModalDialogComponent,
@@ -58,6 +59,7 @@ const dialogs = [
     ...dialogs
   ],
   providers: [
+    CookieService,
     AuthService,
     UsersService,
     MessagesService,

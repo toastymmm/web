@@ -11,7 +11,11 @@ export class HeaderComponent {
   constructor(private auth: AuthService) {
   }
 
-  logout() {
-    this.auth.logout();
+  async logout() {
+    try {
+      await this.auth.logout();
+    } catch (e) {
+      alert(e.message);
+    }
   }
 }
